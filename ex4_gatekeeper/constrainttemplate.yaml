@@ -1,0 +1,17 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: privilegedcontainerconstraint
+spec:
+  crd:
+    spec:
+      names:
+        kind: PrivilegedContainerConstraint
+  targets:
+  - target: admission.k8s.gatekeeper.sh
+    rego: |
+      package privilegedcontainerconstraint
+
+      violation[{"msg": msg}] {
+        # 以下に記述してください
+      }
